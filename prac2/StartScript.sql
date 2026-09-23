@@ -31,6 +31,6 @@ CREATE TABLE Control (
     readers_id INT NOT NULL REFERENCES readers(readers_id),
     isbn VARCHAR(255) NOT NULL REFERENCES books(isbn),
     date_of_give DATE NOT NULL,
-    date_of_s_back DATE NOT NULL CHECK (return_date >= loan_date),
-    date_of_back DATE CHECK (returned_date >= loan_date)
+    date_of_s_back DATE NOT NULL CHECK (date_of_s_back >= date_of_give),
+    date_of_back DATE CHECK ( date_of_back >= date_of_give)
 );
