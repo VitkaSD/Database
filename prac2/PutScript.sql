@@ -22,6 +22,7 @@ INSERT INTO book_creators (isbn, c_id) VALUES
     ('979-8-219-02346-6', 4),
     ('979-8-223-03456-6', 5),
     ('978-5-723-24572-7', 6),
+    ('978-5-723-24572-7', 7),
 
 
 INSERT INTO readers (r_name, r_number) VALUES
