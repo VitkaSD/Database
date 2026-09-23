@@ -22,7 +22,7 @@ INSERT INTO book_creators (isbn, c_id) VALUES
     ('979-8-219-02346-6', 4),
     ('979-8-223-03456-6', 5),
     ('978-5-723-24572-7', 6),
-    ('978-5-723-24572-7', 7),
+    ('978-5-723-24572-7', 7);
 
 
 INSERT INTO readers (r_name, r_number) VALUES
@@ -51,7 +51,7 @@ SET r_number = '+7-913-314-32-75'
 WHERE readers_id = 1;
 
 UPDATE Control
-SET returned_date = '2026-07-15'
+SET date_of_back = '2026-07-15'
 WHERE Order_id = 5;
 
 INSERT INTO readers (r_name, r_number)
