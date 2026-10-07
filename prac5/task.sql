@@ -58,5 +58,4 @@ sum(oi.quantity) total_quantity
 FROM order_items oi
 INNER JOIN products p ON oi.product_id = p.product_id
 GROUP BY p.product_id, p. product_name
-ORDER BY total_quantity DESC
-FETCH FIRST 1 ROWS WITH TIES;
+ORDER BY total_quantity DESC;
