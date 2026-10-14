@@ -1,4 +1,4 @@
-CREATE DATABASE practice10;
+CREATE DATABASE task_10;
 
 
 
