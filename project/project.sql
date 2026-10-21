@@ -44,7 +44,7 @@ CREATE TABLE clients (
 
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY,
-    branch_id SERIAL NOT NULL,
+    branch_id INT NOT NULL,
     full_name VARCHAR(255) NOT NULL,
     speciality VARCHAR(255) NOT NULL,
     phone_n VARCHAR(13) NOT NULL,
@@ -55,11 +55,11 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE orders (
-    order_id SERIAL PRIMARY KEY,
-    branch_id SERIAL NOT NULL,
-    room_type_id SERIAL NOT NULL,
-    tariff_id SERIAL NOT NULL,
-    employee_id SERIAL NOT NULL,
+    order_id INT PRIMARY KEY,
+    branch_id INT NOT NULL,
+    room_type_id INT NOT NULL,
+    tariff_id INT NOT NULL,
+    employee_id INT NOT NULL,
     opened_at TIMESTAMP NOT NULL,
     closed_at TIMESTAMP,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
@@ -71,8 +71,8 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE order_clients (
-    order_id SERIAL NOT NULL,
-    client_id SERIAL NOT NULL,
+    order_id INT NOT NULL,
+    client_id INT NOT NULL,
     is_responsible BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY (order_id, client_id),
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
@@ -80,9 +80,9 @@ CREATE TABLE order_clients (
 );
 
 CREATE TABLE order_menu_items (
-    order_id SERIAL NOT NULL,
-    menu_item_id SERIAL NOT NULL,
-    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    order_id INT NOT NULL,
+    menu_item_id INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
     PRIMARY KEY (order_id, menu_item_id),
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
