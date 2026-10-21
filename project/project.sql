@@ -67,7 +67,7 @@ CREATE TABLE orders (
     FOREIGN KEY (branch_id) REFERENCES branches(branch_id),
     FOREIGN KEY (room_type_id) REFERENCES room_types(room_type_id),
     FOREIGN KEY (tariff_id) REFERENCES tariffs(tariff_id),
-    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 CREATE TABLE order_clients (
