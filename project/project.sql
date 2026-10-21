@@ -1,7 +1,7 @@
 CREATE DATABASE anti_cafe;
 
 CREATE TABLE branches (
-    branch_id INT PRIMARY KEY,
+    branch_id INT NOT NULL PRIMARY KEY,
     branch_name VARCHAR(255) NOT NULL UNIQUE,
     b_address VARCHAR(255) NOT NULL,
     phone_n VARCHAR(13) NOT NULL,
@@ -10,13 +10,13 @@ CREATE TABLE branches (
 );
 
 CREATE TABLE room_types (
-    room_type_id INT PRIMARY KEY,
+    room_type_id INT NOT NULL PRIMARY KEY,
     room_type_name VARCHAR(255) NOT NULL UNIQUE,
     capacity INTEGER NOT NULL CHECK (capacity > 0)
 );
 
 CREATE TABLE tariffs (
-    tariff_id INT PRIMARY KEY,
+    tariff_id INT NOT NULL PRIMARY KEY,
     room_type_id INT NOT NULL,
     tariff_name VARCHAR(255) NOT NULL,
     duration_min INT NOT NULL CHECK (duration_min > 0),
@@ -25,7 +25,7 @@ CREATE TABLE tariffs (
 );
 
 CREATE TABLE menu_items (
-    menu_item_id INT PRIMARY KEY,
+    menu_item_id INT NOT NULL PRIMARY KEY,
     item_name VARCHAR(255) NOT NULL UNIQUE,
     category VARCHAR(255) NOT NULL,
     price NUMERIC(10,2) NOT NULL CHECK (price >= 0),
@@ -33,7 +33,7 @@ CREATE TABLE menu_items (
 );
 
 CREATE TABLE clients (
-    client_id INT PRIMARY KEY,
+    client_id INT NOT NULL PRIMARY KEY,
     full_name VARCHAR(255) NOT NULL,
     phone VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) UNIQUE,
@@ -43,7 +43,7 @@ CREATE TABLE clients (
 );
 
 CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
+    employee_id INT NOT NULL PRIMARY KEY,
     branch_id INT NOT NULL,
     full_name VARCHAR(255) NOT NULL,
     speciality VARCHAR(255) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE orders (
-    order_id INT PRIMARY KEY,
+    order_id INT NOT NULL PRIMARY KEY,
     branch_id INT NOT NULL,
     room_type_id INT NOT NULL,
     tariff_id INT NOT NULL,
@@ -87,3 +87,4 @@ CREATE TABLE order_menu_items (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (menu_item_id) REFERENCES menu_items(menu_item_id)
 );
+
